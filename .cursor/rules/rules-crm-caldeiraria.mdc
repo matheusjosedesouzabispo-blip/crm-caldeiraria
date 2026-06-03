@@ -152,6 +152,27 @@ O `server.js` é um servidor HTTP simples (Node.js built-in) que serve os arquiv
 
 ---
 
+## SEO — robots.txt e sitemap.xml
+
+Ambos os arquivos ficam na **raiz do projeto** e são servidos diretamente pelo Apache.
+
+### robots.txt
+- Permite todos os robots (`User-agent: *` + `Allow: /`)
+- Aponta para: `https://crmcaldeirariabrasil.com.br/sitemap.xml`
+- Nunca bloquear rotas de serviço ou institucionais
+
+### sitemap.xml
+- Formato: Sitemap Protocol 0.9 (`http://www.sitemaps.org/schemas/sitemap/0.9`)
+- **10 URLs** indexadas — home + 6 serviços + quem-somos + contato + depoimentos
+- Prioridades: home `1.0` → serviços `0.9` → contato `0.7` → quem-somos `0.6` → depoimentos `0.5`
+- `changefreq`: `monthly` para serviços e depoimentos; `yearly` para quem-somos e contato
+- URLs sempre **sem `www`** — versão canônica é `https://crmcaldeirariabrasil.com.br/`
+- **Ao criar nova página**, adicionar entrada no sitemap com `lastmod` no formato `YYYY-MM-DD`
+- **`lastmod`** deve ser atualizado sempre que o conteúdo da página mudar significativamente
+- Após alterações estruturais, submeter novamente no Google Search Console
+
+---
+
 ## Documento de apoio para páginas de serviço
 
 Para criação e manutenção das páginas de serviço, usar como referência obrigatória:

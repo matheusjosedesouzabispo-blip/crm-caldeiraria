@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://crmcaldeirariabrasil.com.br/sitemap.xml
