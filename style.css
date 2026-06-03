@@ -1071,6 +1071,51 @@ body.lightbox-aberto {
   height: 400px;
   background: radial-gradient(circle, rgba(217,164,65,0.12) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 1;
+}
+.chamada-de-contato--com-fundo::before,
+.chamada-de-contato--centralizada::before {
+  display: none;
+}
+.chamada-de-contato--com-fundo::after,
+.chamada-de-contato--centralizada::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(31, 41, 69, 0.88) 0%, rgba(42, 54, 90, 0.84) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.chamada-de-contato--com-fundo {
+  background-size: cover;
+  background-position: center;
+  background-image: url('/assets/img/bases-de-maquina-sob-desenho-1.webp');
+}
+.chamada-de-contato--centralizada {
+  padding: 96px 24px;
+  background-size: cover;
+  background-position: center;
+}
+.chamada-de-contato--centralizada .conteudo-da-chamada {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  justify-items: center;
+  text-align: center;
+}
+.chamada-de-contato--centralizada .texto-da-chamada {
+  max-width: 640px;
+}
+.chamada-de-contato--centralizada .texto-da-chamada > p {
+  margin-bottom: 28px;
+}
+.chamada-de-contato--fundo-revestimento {
+  background-image: url('/assets/img/revestimento-em-moinhos.webp');
+}
+.chamada-de-contato--fundo-bases {
+  background-image: url('/assets/img/bases-de-maquina-sob-desenho-2.webp');
+}
+.chamada-de-contato--fundo-rosca {
+  background-image: url('/assets/img/fabricacao-de-rosca-transportadora-2.webp');
 }
 .conteudo-da-chamada {
   max-width: var(--largura-maxima);
@@ -1170,8 +1215,13 @@ body.lightbox-aberto {
   background-color: var(--claro-suave);
   color: inherit;
   padding: 100px 24px;
+  background-image: linear-gradient(rgba(249, 249, 249, 0.9), rgba(249, 249, 249, 0.93)),
+    url('/assets/img/fabricacao-de-tanques-2.webp');
+  background-size: cover;
+  background-position: center;
 }
-.chamada-de-contato--clara::before { display: none; }
+.chamada-de-contato--clara::before,
+.chamada-de-contato--clara::after { display: none; }
 .chamada-de-contato--clara .texto-da-chamada h2 {
   color: var(--azul-institucional);
 }
@@ -1200,7 +1250,7 @@ body.lightbox-aberto {
   box-shadow: 0 12px 40px rgba(42,54,90,0.12);
 }
 .texto-da-chamada--com-imagem {
-  background-image: linear-gradient(rgba(249,249,249,0.84), rgba(249,249,249,0.84)), url('/assets/img/contato-canais.webp');
+  background-image: linear-gradient(rgba(249,249,249,0.86), rgba(249,249,249,0.88)), url('/assets/img/quem-somos-equipe.webp');
   background-size: cover;
   background-position: center;
   border-radius: var(--raio-padrao);
