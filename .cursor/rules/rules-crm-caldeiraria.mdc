@@ -7,7 +7,7 @@ alwaysApply: false
 
 ## O que é este projeto
 
-Site institucional da empresa **CRM Caldeiraria e Revestimentos Metálicos**, localizada em Salto/SP. Voltado para indústrias de papel, celulose, MDF, química e alimentícia. O objetivo do site é apresentar serviços, gerar leads via formulário de contato e exibir depoimentos de clientes.
+Site institucional da empresa **CRM Caldeiraria e Revestimentos Metálicos**, localizada em Salto/SP. Voltado para indústrias de papel, celulose, MDF, química e alimentícia. O objetivo do site é apresentar serviços, gerar leads via WhatsApp (CTA principal) e exibir depoimentos de clientes.
 
 ---
 
@@ -27,11 +27,11 @@ Site institucional da empresa **CRM Caldeiraria e Revestimentos Metálicos**, lo
 crm-caldeiraria/
 ├── index.html              # Página inicial (home)
 ├── style.css               # Folha de estilos global (única, compartilhada)
-├── script.js               # Scripts globais (menu mobile, animações, formulário)
+├── script.js               # Scripts globais (menu mobile, animações, FAQ, lightbox)
 ├── quem-somos/
 │   └── index.html          # Página Quem Somos
 ├── contato/
-│   └── index.html          # Página de Contato com formulário
+│   └── index.html          # Página de Contato (canais + CTA WhatsApp)
 ├── blog/
 │   └── index.html          # Página de Blog
 ├── depoimentos/

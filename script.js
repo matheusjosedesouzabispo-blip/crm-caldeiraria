@@ -1,7 +1,7 @@
 /* =========================================================
    CRM Caldeiraria — Scripts da Home (versão expandida)
    Interações: menu mobile, animações, contagem de números,
-   formulário, navegação suave e sombra dinâmica no header.
+   FAQ, lightbox e sombra dinâmica no header.
    ========================================================= */
 
 function initLucideIcons() {
@@ -100,56 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cabecalho.style.boxShadow = '0 2px 12px rgba(0,0,0,0.15)';
       }
     });
-  }
-
-  /* ---- Formulário de contato: validação básica e feedback ---- */
-  const formulario = document.getElementById('formulario-de-orcamento');
-  if (formulario) {
-    formulario.addEventListener('submit', (evento) => {
-      evento.preventDefault();
-
-      const nome = formulario.querySelector('#campo-nome').value.trim();
-      const telefone = formulario.querySelector('#campo-telefone').value.trim();
-      const email = formulario.querySelector('#campo-email').value.trim();
-
-      if (!nome || !telefone || !email) {
-        alert('Por favor, preencha os campos obrigatórios: nome, telefone e e-mail.');
-        return;
-      }
-
-      // Feedback visual ao usuário
-      const botaoEnviar = formulario.querySelector('button[type="submit"]');
-      const textoOriginal = botaoEnviar.textContent;
-      botaoEnviar.textContent = 'Enviando...';
-      botaoEnviar.disabled = true;
-
-      // Simulação de envio — substituir por integração real (backend, e-mail, WhatsApp API, etc.)
-      setTimeout(() => {
-        alert('Obrigado pelo contato! Retornaremos em até 1 dia útil.');
-        formulario.reset();
-        botaoEnviar.textContent = textoOriginal;
-        botaoEnviar.disabled = false;
-      }, 1200);
-    });
-
-    /* ---- Máscara simples para telefone ---- */
-    const campoTelefone = formulario.querySelector('#campo-telefone');
-    if (campoTelefone) {
-      campoTelefone.addEventListener('input', (e) => {
-        let valor = e.target.value.replace(/\D/g, '');
-        if (valor.length > 11) valor = valor.slice(0, 11);
-
-        if (valor.length > 10) {
-          valor = valor.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-        } else if (valor.length > 6) {
-          valor = valor.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
-        } else if (valor.length > 2) {
-          valor = valor.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-        }
-
-        e.target.value = valor;
-      });
-    }
   }
 
   /* ---- FAQ: accordion animado com max-height ---- */

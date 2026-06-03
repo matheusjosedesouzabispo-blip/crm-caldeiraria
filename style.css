@@ -249,6 +249,7 @@ em { font-style: italic; color: var(--destaque-quente); }
   background-color: rgba(255, 255, 255, 0.08);
 }
 .botao-com-margem { margin-top: 28px; }
+.botao-hero-interno { margin-top: 24px; }
 .botao-largura-total { width: 100%; margin-top: 10px; }
 
 .indicadores-do-destaque {
@@ -626,6 +627,9 @@ em { font-style: italic; color: var(--destaque-quente); }
   border-color: var(--destaque-quente);
   transform: translateY(-4px);
 }
+.icone-do-material {
+  margin-bottom: 14px;
+}
 .cartao-de-material h4 {
   color: var(--destaque-quente);
   font-size: 1.1rem;
@@ -958,6 +962,12 @@ body.lightbox-aberto {
   stroke: var(--destaque-quente);
   stroke-width: 1.5;
 }
+.icone-material {
+  width: 40px;
+  height: 40px;
+  stroke: var(--destaque-quente);
+  stroke-width: 1.5;
+}
 .icone-rodape {
   width: 14px;
   height: 14px;
@@ -1044,7 +1054,7 @@ body.lightbox-aberto {
   margin: 0;
 }
 
-/* ---------- Chamada de contato + Formulário ---------- */
+/* ---------- Chamada de contato + CTA WhatsApp ---------- */
 .chamada-de-contato {
   background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-institucional) 100%);
   color: var(--claro-suave);
@@ -1115,59 +1125,86 @@ body.lightbox-aberto {
   color: var(--claro-suave);
 }
 
-/* Formulário */
-.formulario-de-contato {
+/* CTA WhatsApp (substitui o formulário) */
+.cta-whatsapp-orcamento {
   background-color: #fff;
   padding: 40px 36px;
   border-radius: var(--raio-padrao);
   color: #1f2330;
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  text-align: center;
 }
-.formulario-de-contato h3 {
+.cta-whatsapp-orcamento h3 {
   font-size: 1.4rem;
   font-weight: 900;
   color: var(--azul-institucional);
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
-.campo-do-formulario { margin-bottom: 16px; }
-.grupo-de-campos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+.cta-whatsapp-orcamento > p {
+  color: var(--cinza-texto);
+  font-size: 0.97rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
 }
-.campo-do-formulario label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--azul-institucional);
-  margin-bottom: 6px;
-}
-.campo-do-formulario input,
-.campo-do-formulario select,
-.campo-do-formulario textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--cinza-borda);
-  border-radius: var(--raio-pequeno);
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: #1f2330;
-  background-color: #fff;
-  transition: var(--transicao-padrao);
-}
-.campo-do-formulario input:focus,
-.campo-do-formulario select:focus,
-.campo-do-formulario textarea:focus {
-  outline: none;
-  border-color: var(--destaque-quente);
-  box-shadow: 0 0 0 3px rgba(217,164,65,0.15);
-}
-.campo-do-formulario textarea { resize: vertical; min-height: 100px; }
-.aviso-do-formulario {
+.aviso-cta-whatsapp {
   text-align: center;
   font-size: 0.85rem;
   color: var(--cinza-texto);
-  margin-top: 14px;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+.botao-com-icone,
+.botao-whatsapp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.botao-com-icone .icone-lucide,
+.botao-whatsapp-cta .icone-lucide {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.chamada-de-contato--clara {
+  background-color: var(--claro-suave);
+  color: inherit;
+  padding: 100px 24px;
+}
+.chamada-de-contato--clara::before { display: none; }
+.chamada-de-contato--clara .texto-da-chamada h2 {
+  color: var(--azul-institucional);
+}
+.chamada-de-contato--clara .texto-da-chamada > p {
+  color: var(--cinza-texto);
+}
+.chamada-de-contato--clara .etiqueta-de-secao {
+  color: var(--azul-institucional);
+}
+.chamada-de-contato--clara .canal-de-contato {
+  background-color: #fff;
+  border-color: var(--cinza-borda);
+}
+.chamada-de-contato--clara .canal-de-contato:not(.sem-link):hover {
+  background-color: rgba(217,164,65,0.08);
+  border-color: var(--destaque-quente);
+}
+.chamada-de-contato--clara .canal-de-contato strong {
+  color: var(--azul-institucional);
+}
+.chamada-de-contato--clara .canal-de-contato span {
+  color: var(--cinza-texto);
+  font-weight: 700;
+}
+.chamada-de-contato--clara .cta-whatsapp-orcamento {
+  box-shadow: 0 12px 40px rgba(42,54,90,0.12);
+}
+.texto-da-chamada--com-imagem {
+  background-image: linear-gradient(rgba(249,249,249,0.84), rgba(249,249,249,0.84)), url('/assets/img/contato-canais.webp');
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--raio-padrao);
+  padding: 24px;
 }
 
 /* ---------- Rodapé ---------- */
@@ -1244,6 +1281,11 @@ body.lightbox-aberto {
 .botao-whatsapp-flutuante:hover {
   transform: scale(1.08);
   box-shadow: 0 12px 30px rgba(37,211,102,0.55);
+}
+.botao-whatsapp-flutuante .icone-whatsapp-flutuante {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
 }
 @keyframes pulso-whatsapp {
   0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.45); }
@@ -1333,8 +1375,7 @@ body.lightbox-aberto {
   .chamada-de-contato { padding: 70px 20px; }
 
   .canais-de-contato { grid-template-columns: 1fr; }
-  .grupo-de-campos { grid-template-columns: 1fr; }
-  .formulario-de-contato { padding: 32px 24px; }
+  .cta-whatsapp-orcamento { padding: 32px 24px; }
   .conteudo-do-rodape {
     grid-template-columns: 1fr;
     text-align: left;
