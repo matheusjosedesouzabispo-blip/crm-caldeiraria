@@ -1,0 +1,122 @@
+---
+description: Visão geral técnica do projeto CRM Caldeiraria — estrutura, stack, deploy e convenções. Citar quando precisar de contexto completo do projeto.
+alwaysApply: false
+---
+
+# CRM Caldeiraria e Revestimentos Metálicos — Visão Geral Técnica
+
+## O que é este projeto
+
+Site institucional da empresa **CRM Caldeiraria e Revestimentos Metálicos**, localizada em Salto/SP. Voltado para indústrias de papel, celulose, MDF, química e alimentícia. O objetivo do site é apresentar serviços, gerar leads via formulário de contato e exibir depoimentos de clientes.
+
+---
+
+## Stack e Tipo
+
+- **HTML5 + CSS3 + JavaScript puro** — sem framework, sem bundler, sem etapa de build
+- **Zero dependências de npm em produção** — o `package.json` existe apenas para o script de dev local
+- **Ícones:** Lucide (arquivo local `assets/lucide.min.js`)
+- **Tipografia:** Lato via Google Fonts
+- **Em produção:** Apache serve os arquivos estáticos diretamente
+
+---
+
+## Estrutura de Arquivos
+
+```
+crm-caldeiraria/
+├── index.html              # Página inicial (home)
+├── style.css               # Folha de estilos global (única, compartilhada)
+├── script.js               # Scripts globais (menu mobile, animações, formulário)
+├── quem-somos/
+│   └── index.html          # Página Quem Somos
+├── contato/
+│   └── index.html          # Página de Contato com formulário
+├── blog/
+│   └── index.html          # Página de Blog
+├── depoimentos/
+│   └── index.html          # Página de Depoimentos
+├── assets/
+│   ├── img/                # Imagens em WebP + favicons + site.webmanifest
+│   ├── lucide.min.js       # Biblioteca de ícones (local, sem CDN)
+│   └── docs/
+│       └── deploy.md       # Documentação do fluxo de deploy
+├── server.js               # Servidor HTTP para desenvolvimento LOCAL (não usado em produção)
+└── package.json            # Apenas define o script "start": "node server.js"
+```
+
+---
+
+## Convenções Visuais
+
+Todas as variáveis CSS estão em `:root` no `style.css`:
+
+| Variável | Valor | Uso |
+|---|---|---|
+| `--azul-institucional` | `#2A365A` | Cor principal da marca |
+| `--azul-profundo` | `#1f2945` | Headers, fundos escuros |
+| `--azul-suave` | `#3a4775` | Hover, elementos secundários |
+| `--destaque-quente` | `#d9a441` | CTAs, destaques, botões |
+| `--claro-suave` | `#F9F9F9` | Fundos claros |
+| `--cinza-texto` | `#5a6178` | Textos secundários |
+
+- Tipografia: `font-family: 'Lato'`, pesos 300 / 400 / 700 / 900
+- Largura máxima do conteúdo: `1100px` (`--largura-conteudo`)
+- Raio padrão: `10px` (`--raio-padrao`)
+- Transição padrão: `0.3s ease`
+
+---
+
+## Caminhos de Assets
+
+Todos os `src` e `href` de imagens usam **caminhos absolutos a partir da raiz**:
+```html
+/assets/img/nome-da-imagem.webp
+```
+Nunca caminhos relativos (`../assets/...`). Isso garante funcionamento em qualquer subpágina.
+
+---
+
+## Funcionalidades do script.js
+
+- Ano dinâmico no rodapé via `id="ano-atual"`
+- Menu mobile (abre/fecha com `.botao-menu-mobile`)
+- Animações de entrada via `IntersectionObserver`
+- Contagem animada de números (ex.: "500+ projetos")
+- Sombra dinâmica no header ao rolar a página
+- Inicialização dos ícones Lucide (`lucide.createIcons()`)
+
+---
+
+## Desenvolvimento Local
+
+```powershell
+node server.js
+# Acesse: http://127.0.0.1:8799
+```
+
+O `server.js` é um servidor HTTP simples (Node.js built-in) que serve os arquivos estáticos. Suporta rotas sem extensão e resolve `index.html` em subpastas. **Não é usado em produção.**
+
+---
+
+## Deploy e Produção
+
+- **Hospedagem:** DirectAdmin — servidor `br62-da.valueserver.net.br`
+- **Domínio:** `crmcaldeirariabrasil.com.br`
+- **Pasta de produção:** `/home/crmcaldeiraria/domains/crmcaldeirariabrasil.com.br/public_html`
+- **Repositório:** `https://github.com/matheusjosedesouzabispo-blip/crm-caldeiraria`
+- **Branch de produção:** `main`
+- **Deploy automático:** `git push origin main` → webhook GitHub → DirectAdmin faz `git pull`
+- **Não há build** — o que está no repositório é exatamente o que vai para produção
+- Documentação completa do deploy em `assets/docs/deploy.md`
+
+---
+
+## Regras para Edição
+
+1. **Nunca criar um sistema de build** (Webpack, Vite, etc.) sem decisão explícita — o projeto é estático por escolha.
+2. **Nunca editar `server.js` para produção** — ele é exclusivamente para dev local.
+3. **Manter um único `style.css`** global — não criar arquivos CSS por página.
+4. **Imagens sempre em WebP** quando possível, salvas em `assets/img/`.
+5. **Caminhos absolutos** (`/assets/...`) em todos os HTMLs, nunca relativos.
+6. **Não adicionar dependências de npm** para funcionalidades que JS puro resolve.
