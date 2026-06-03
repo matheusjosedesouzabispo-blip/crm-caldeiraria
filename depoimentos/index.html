@@ -48,7 +48,7 @@
 
       <nav class="menu-do-site" aria-label="Navegação principal">
         <ul>
-          <li><a href="../">Home</a></li>
+          <li><a href="../">Início</a></li>
           <li class="item-menu-com-submenu">
             <button type="button" class="gatilho-submenu-servicos" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-servicos">
               Serviços
@@ -64,7 +64,6 @@
             </ul>
           </li>
           <li><a href="../quem-somos/">Quem Somos</a></li>
-          <li><a href="../blog/">Blog</a></li>
           <li><a href="./" class="link-ativo">Depoimentos</a></li>
           <li><a href="../contato/">Contato</a></li>
           <li><a href="https://wa.me/5511934001952" class="botao-do-menu" target="_blank" rel="noopener">Orçamento</a></li>
@@ -76,7 +75,7 @@
   <main>
 
     <!-- Hero interno -->
-    <section class="destaque-inicial destaque-interno" style="background-image: linear-gradient(rgba(31,41,69,0.74), rgba(31,41,69,0.74)), url('../assets/img/depoimentos-hero.webp'); background-size: cover; background-position: center;">
+    <section class="destaque-inicial destaque-interno destaque-depoimentos">
       <div class="conteudo-do-destaque">
         <span class="etiqueta-superior">O que dizem sobre nós</span>
         <h1>A voz de quem confia no nosso <em>trabalho técnico</em>.</h1>
@@ -87,7 +86,7 @@
     </section>
 
     <!-- Depoimentos -->
-    <section class="bloco-de-depoimentos" style="padding: 100px 24px; background-image: linear-gradient(rgba(249,249,249,0.9), rgba(249,249,249,0.9)), url('../assets/img/depoimentos-bg.webp'); background-size: cover; background-position: center;">
+    <section class="bloco-de-depoimentos bloco-de-depoimentos--pagina">
       <div class="cabecalho-da-secao">
         <span class="etiqueta-de-secao">Clientes</span>
         <h2>O que dizem sobre nosso trabalho.</h2>
@@ -95,7 +94,18 @@
 
       <div class="grade-de-depoimentos">
         <article class="cartao-de-depoimento">
-          <p>"Atendimento técnico de altíssimo nível. Entregaram exatamente o que pedimos no desenho, dentro do prazo combinado."</p>
+          <div class="cabecalho-do-depoimento">
+            <div class="estrelas-do-depoimento" aria-label="Avaliação: 5 de 5 estrelas">
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+            </div>
+          </div>
+          <blockquote>
+            <p>Contratamos a CRM para fabricação de tanques sob desenho para nossa linha de licor. Desde a análise do projeto até a entrega, o atendimento técnico foi pontual: alinharam soldas, espessuras e pontos de inspeção com nossa equipe de manutenção. O equipamento chegou dentro do cronograma da parada e passou no receiver sem ressalvas. Hoje é referência para os próximos retrofit que planejamos na planta.</p>
+          </blockquote>
           <footer>
             <strong>Engenheiro de Manutenção</strong>
             <span>Indústria de papel e celulose</span>
@@ -103,7 +113,18 @@
         </article>
 
         <article class="cartao-de-depoimento">
-          <p>"O revestimento duro aplicado nos nossos moinhos aumentou consideravelmente a vida útil dos equipamentos. Recomendo."</p>
+          <div class="cabecalho-do-depoimento">
+            <div class="estrelas-do-depoimento" aria-label="Avaliação: 5 de 5 estrelas">
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+            </div>
+          </div>
+          <blockquote>
+            <p>O revestimento duro nos moinhos vinha sendo nosso gargalo de desgaste. A CRM fez o mapeamento das zonas críticas, escolheu o processo adequado e executou com controle de qualidade em cada etapa. Depois de alguns meses em operação contínua, a vida útil do conjunto aumentou de forma mensurável e reduzimos paradas não programadas. Parceria que faz diferença no chão de fábrica.</p>
+          </blockquote>
           <footer>
             <strong>Supervisor Industrial</strong>
             <span>Setor de MDF</span>
@@ -111,7 +132,18 @@
         </article>
 
         <article class="cartao-de-depoimento">
-          <p>"A equipe da CRM entende profundamente do que faz. Acabamento das soldas em inox foi impecável."</p>
+          <div class="cabecalho-do-depoimento">
+            <div class="estrelas-do-depoimento" aria-label="Avaliação: 5 de 5 estrelas">
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+            </div>
+          </div>
+          <blockquote>
+            <p>Precisávamos de soldas especiais em inox para um skid químico com requisitos severos de estanqueidade. A equipe dominou TIG e o acabamento ficou uniforme, sem retrabalho na montagem final. Documentação e comunicação durante o projeto foram claras, o que facilitou a integração com nosso time de engenharia. Recomendamos para quem não pode errar em ambiente corrosivo.</p>
+          </blockquote>
           <footer>
             <strong>Gestor de Projetos</strong>
             <span>Indústria química</span>
@@ -119,7 +151,18 @@
         </article>
 
         <article class="cartao-de-depoimento">
-          <p>"Parceria de longa data. A CRM sempre entrega com qualidade e dentro do prazo. Fundamental para nossas paradas programadas."</p>
+          <div class="cabecalho-do-depoimento">
+            <div class="estrelas-do-depoimento" aria-label="Avaliação: 5 de 5 estrelas">
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+            </div>
+          </div>
+          <blockquote>
+            <p>Trabalhamos com a CRM há anos em paradas programadas — tanques, dutos e reparos pontuais. Eles entendem a pressão do cronograma da indústria: chegam preparados, cumprem o combinado e mantêm o padrão entre um projeto e outro. Para nós, ter um fornecedor de caldeiraria confiável é o que separa uma parada tranquila de uma surpresa cara no meio da operação.</p>
+          </blockquote>
           <footer>
             <strong>Coordenador de Manutenção</strong>
             <span>Setor petroquímico</span>
@@ -127,7 +170,18 @@
         </article>
 
         <article class="cartao-de-depoimento">
-          <p>"As roscas transportadoras fabricadas pela CRM superaram nossas expectativas em durabilidade. Excelente custo-benefício."</p>
+          <div class="cabecalho-do-depoimento">
+            <div class="estrelas-do-depoimento" aria-label="Avaliação: 5 de 5 estrelas">
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+            </div>
+          </div>
+          <blockquote>
+            <p>As roscas transportadoras que a CRM fabricou para nossa linha de materiais a granel superaram a durabilidade das peças anteriores. O alinhamento do helicoide, o balanceamento e o acabamento superficial refletem cuidado na usinagem. O custo-benefício ficou evidente depois que paramos de trocar componentes com tanta frequência. Hoje incluímos a CRM no rol de fornecedores aprovados para novos projetos.</p>
+          </blockquote>
           <footer>
             <strong>Gerente de Produção</strong>
             <span>Indústria alimentícia</span>
@@ -135,7 +189,18 @@
         </article>
 
         <article class="cartao-de-depoimento">
-          <p>"Equipe comprometida e qualidade de execução impecável. Recomendamos sem hesitar para qualquer projeto de caldeiraria industrial."</p>
+          <div class="cabecalho-do-depoimento">
+            <div class="estrelas-do-depoimento" aria-label="Avaliação: 5 de 5 estrelas">
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+              <i data-lucide="star" class="icone-lucide" aria-hidden="true"></i>
+            </div>
+          </div>
+          <blockquote>
+            <p>Engajamento da equipe e qualidade de execução são o que mais destacamos. Em projetos de estruturas e caldeiraria pesada, a CRM trouxe proatividade nas revisões de desenho e não hesitou em sinalizar melhorias construtivas antes da fabricação. O resultado final atendeu normas e expectativas da nossa engenharia. Indicamos sem ressalvas para operações de celulose que exigem rigor técnico e prazo cumprido.</p>
+          </blockquote>
           <footer>
             <strong>Diretor de Engenharia</strong>
             <span>Indústria de celulose</span>
@@ -169,9 +234,8 @@
       <div class="bloco-do-rodape">
         <h4>Navegação</h4>
         <ul>
-          <li><a href="../">Home</a></li>
+          <li><a href="../">Início</a></li>
           <li><a href="../quem-somos/">Quem Somos</a></li>
-          <li><a href="../blog/">Blog</a></li>
           <li><a href="./">Depoimentos</a></li>
           <li><a href="../contato/">Contato</a></li>
         </ul>

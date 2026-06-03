@@ -44,8 +44,6 @@ crm-caldeiraria/
 │   └── index.html          # Página Quem Somos
 ├── contato/
 │   └── index.html          # Página de Contato (canais + CTA WhatsApp)
-├── blog/
-│   └── index.html          # Página de Blog
 ├── depoimentos/
 │   └── index.html          # Página de Depoimentos
 ├── assets/

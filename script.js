@@ -1,5 +1,5 @@
 /* =========================================================
-   CRM Caldeiraria — Scripts da Home (versão expandida)
+   CRM Caldeiraria — Scripts da página inicial (versão expandida)
    Interações: menu mobile, animações, contagem de números,
    FAQ, lightbox e sombra dinâmica no header.
    ========================================================= */
@@ -57,27 +57,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---- Animação de entrada por scroll ---- */
-  const elementosAnimaveis = document.querySelectorAll(
-    '.cartao-de-servico, .cartao-de-processo, .cartao-de-segmento, .cartao-de-material, ' +
-    '.etapa, .cartao-de-depoimento, .grade-da-galeria figure, ' +
-    '.bloco-sobre-a-empresa, .cabecalho-da-secao, .indicador'
-  );
+  const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const observador = new IntersectionObserver((entradas) => {
     entradas.forEach(entrada => {
       if (entrada.isIntersecting) {
-        entrada.target.style.opacity = '1';
-        entrada.target.style.transform = 'translateY(0)';
+        entrada.target.classList.add('visivel-na-tela');
         observador.unobserve(entrada.target);
       }
     });
   }, { threshold: 0.12 });
 
-  elementosAnimaveis.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    observador.observe(el);
+  function prepararAnimacaoEntrada(elemento, opcoes = {}) {
+    const { suave = false, atrasoMs = 0 } = opcoes;
+
+    if (movimentoReduzido) {
+      elemento.classList.add('visivel-na-tela');
+      return;
+    }
+
+    elemento.classList.add('animar-entrada');
+    if (suave) elemento.classList.add('animar-entrada--suave');
+    if (atrasoMs > 0) elemento.style.setProperty('--atraso-entrada', `${atrasoMs}ms`);
+    observador.observe(elemento);
+  }
+
+  const elementosAnimaveis = document.querySelectorAll(
+    '.cartao-de-servico, .cartao-de-processo, .cartao-de-segmento, .cartao-de-material, ' +
+    '.etapa, .grade-da-galeria figure, .bloco-sobre-a-empresa, .cabecalho-da-secao, .indicador'
+  );
+  elementosAnimaveis.forEach(el => prepararAnimacaoEntrada(el));
+
+  document.querySelectorAll('.grade-de-depoimentos').forEach(grade => {
+    grade.querySelectorAll('.cartao-de-depoimento').forEach((cartao, indice) => {
+      prepararAnimacaoEntrada(cartao, { suave: true, atrasoMs: indice * 110 });
+    });
   });
 
   /* ---- Contagem animada dos indicadores numéricos ---- */
