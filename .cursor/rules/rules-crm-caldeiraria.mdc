@@ -28,6 +28,18 @@ crm-caldeiraria/
 ├── index.html              # Página inicial (home)
 ├── style.css               # Folha de estilos global (única, compartilhada)
 ├── script.js               # Scripts globais (menu mobile, animações, FAQ, lightbox)
+├── fabricacao-de-tanques/
+│   └── index.html          # Página do serviço Fabricação de Tanques
+├── revestimento-duro-em-moinhos/
+│   └── index.html          # Página do serviço Revestimento Duro em Moinhos
+├── roscas-transportadoras/
+│   └── index.html          # Página do serviço Roscas Transportadoras
+├── estruturas-sob-desenho/
+│   └── index.html          # Página do serviço Estruturas Sob Desenho
+├── componentes-para-transporte/
+│   └── index.html          # Página do serviço Componentes para Transporte
+├── soldas-especiais/
+│   └── index.html          # Página do serviço Soldas Especiais
 ├── quem-somos/
 │   └── index.html          # Página Quem Somos
 ├── contato/
@@ -44,6 +56,19 @@ crm-caldeiraria/
 ├── server.js               # Servidor HTTP para desenvolvimento LOCAL (não usado em produção)
 └── package.json            # Apenas define o script "start": "node server.js"
 ```
+
+---
+
+## Slugs oficiais de serviços
+
+Use sempre estes slugs para rotas, links de navegação e organização de conteúdo:
+
+- `/fabricacao-de-tanques/`
+- `/revestimento-duro-em-moinhos/`
+- `/roscas-transportadoras/`
+- `/estruturas-sob-desenho/`
+- `/componentes-para-transporte/`
+- `/soldas-especiais/`
 
 ---
 
@@ -81,6 +106,7 @@ Nunca caminhos relativos (`../assets/...`). Isso garante funcionamento em qualqu
 
 - Ano dinâmico no rodapé via `id="ano-atual"`
 - Menu mobile (abre/fecha com `.botao-menu-mobile`)
+- Submenu de "Serviços" no menu principal, com comportamento adaptado para mobile
 - Animações de entrada via `IntersectionObserver`
 - Contagem animada de números (ex.: "500+ projetos")
 - Sombra dinâmica no header ao rolar a página
@@ -119,4 +145,17 @@ O `server.js` é um servidor HTTP simples (Node.js built-in) que serve os arquiv
 3. **Manter um único `style.css`** global — não criar arquivos CSS por página.
 4. **Imagens sempre em WebP** quando possível, salvas em `assets/img/`.
 5. **Caminhos absolutos** (`/assets/...`) em todos os HTMLs, nunca relativos.
-6. **Não adicionar dependências de npm** para funcionalidades que JS puro resolve.
+6. **Links de serviços** devem usar os slugs oficiais (`/fabricacao-de-tanques/`, etc.).
+7. **Submenu "Serviços" no cabeçalho** deve manter 6 itens fixos e nomenclatura em Title Case.
+8. **Rodapé institucional** deve manter os 6 serviços com os mesmos links do submenu.
+9. **Páginas de serviço** devem ter conteúdo técnico robusto, CTA para WhatsApp e ícones Lucide nos blocos informativos.
+10. **Imagem destacada por serviço** deve seguir o padrão de arquivo `assets/img/<slug>-destaque.webp`.
+11. **Não adicionar dependências de npm** para funcionalidades que JS puro resolve.
+
+---
+
+## Documento de apoio para páginas de serviço
+
+Para criação e manutenção das páginas de serviço, usar como referência obrigatória:
+
+- `assets/docs/regras-paginas-servicos.md`

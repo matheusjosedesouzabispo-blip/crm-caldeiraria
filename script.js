@@ -26,14 +26,35 @@ document.addEventListener('DOMContentLoaded', () => {
       botaoMenu.setAttribute('aria-expanded', aberto);
     });
 
-    // Fecha o menu ao clicar em algum link
     menuDoSite.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menuDoSite.classList.remove('menu-aberto');
         botaoMenu.setAttribute('aria-expanded', 'false');
+        menuDoSite.querySelectorAll('.item-menu-com-submenu.submenu-aberto').forEach(item => {
+          item.classList.remove('submenu-aberto');
+          const gatilho = item.querySelector('.gatilho-submenu-servicos');
+          if (gatilho) gatilho.setAttribute('aria-expanded', 'false');
+        });
       });
     });
   }
+
+  /* ---- Submenu Serviços (mobile: toque para expandir) ---- */
+  const itensSubmenuServicos = document.querySelectorAll('.item-menu-com-submenu');
+  const mediaMenuMobile = window.matchMedia('(max-width: 720px)');
+
+  itensSubmenuServicos.forEach(item => {
+    const gatilho = item.querySelector('.gatilho-submenu-servicos');
+    if (!gatilho) return;
+
+    gatilho.addEventListener('click', (event) => {
+      if (!mediaMenuMobile.matches) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const aberto = item.classList.toggle('submenu-aberto');
+      gatilho.setAttribute('aria-expanded', aberto);
+    });
+  });
 
   /* ---- Animação de entrada por scroll ---- */
   const elementosAnimaveis = document.querySelectorAll(
