@@ -20,6 +20,11 @@
   --transicao-padrao: 0.3s ease;
   --largura-maxima: 1200px;
   --largura-conteudo: 1100px;
+
+  --altura-logo-cabecalho: 76px;
+  --altura-logo-cabecalho-mobile: 56px;
+  --altura-logo-rodape: 84px;
+  --altura-logo-rodape-mobile: 72px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -79,14 +84,18 @@ em { font-style: italic; color: var(--destaque-quente); }
 .conteudo-do-cabecalho {
   max-width: var(--largura-maxima);
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 18px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   position: relative;
 }
-.marca-do-site img { height: 56px; width: auto; }
+.marca-do-site img {
+  height: var(--altura-logo-cabecalho);
+  width: auto;
+  display: block;
+}
 
 .menu-do-site ul {
   display: flex;
@@ -1176,7 +1185,9 @@ body.lightbox-aberto {
   gap: 50px;
 }
 .marca-no-rodape img {
-  height: 60px;
+  height: var(--altura-logo-rodape);
+  width: auto;
+  display: block;
   margin-bottom: 20px;
 }
 .marca-no-rodape p {
@@ -1283,6 +1294,9 @@ body.lightbox-aberto {
   .contato-endereco { display: none; }
 
   .botao-menu-mobile { display: flex; }
+  .marca-no-rodape img {
+    height: var(--altura-logo-rodape-mobile);
+  }
   .menu-do-site {
     position: absolute;
     top: 100%;
@@ -1330,7 +1344,7 @@ body.lightbox-aberto {
 
 @media (max-width: 460px) {
   .conteudo-do-cabecalho { padding: 14px 18px; }
-  .marca-do-site img { height: 44px; }
+  .marca-do-site img { height: var(--altura-logo-cabecalho-mobile); }
   .conteudo-do-destaque h1 { font-size: 1.9rem; }
   .botao-primario, .botao-secundario {
     width: 100%;
